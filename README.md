@@ -21,7 +21,7 @@ This static/strong typing nature of Swift means that type-mismatching usually ra
 
 While Swift handles implicit typing rather well, there are times when we want to explicitly tell the compiler which type we want an instance to be defined as. This may be when we want the type to differ from the implicit type, when we're declaring a property without an associated value that will be set within an initializer, or when we just want to improve the readability of our code for the sake of ourselves and other developers.
 
-To explicitly declare an instance as a particular type, we can use what's called a "type annotation". This syntax simply requires that the instance's name by followed with a colon (`:`) and the type name, such as `Int` or `String`.
+To explicitly declare an instance as a particular type, we can use what's called a "type annotation". This syntax simply requires that the instance's name be followed with a colon (`:`) and the type name, such as `Int`, `Double`, or `String`.
 
 ```swift
 let fortyTwo: Int = 42
@@ -39,7 +39,7 @@ func heyListenGroup(group: String, speaker: String, minutes: Int) -> String {
 Further details on Type Annotations and [Type Safety](https://en.wikipedia.org/wiki/Type_safety) can be found in [The Basics chapter](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309
 ) of Apple's *The Swift Programming Language*
 
-## Type Mis-matching
+## Type Mismatching
 
 Type mismatches in your code will interrupt the compile phase and keep the scheme from building. Mismatches occur when an instance of one type is assigned a value or variable of a different type:
 
@@ -47,6 +47,8 @@ Type mismatches in your code will interrupt the compile phase and keep the schem
 let pi: Int = 3.14159    // error
 ```
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-statically-typed/type_mismatch_pi_Int.png)
+
+This occurs when assigning from other instances as well as from values:
 
 ```swift
 let pi: Double = 3.14159
@@ -67,7 +69,7 @@ heyListenGroup("iOS", speaker: "Orta", minutes: pi)
 ```
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-statically-typed/type_mismatch_function_parameter.png)
 
-Apple recommends using `Int` for general use, even when the instance represents a non-negative value. Their reasoning is that this improves interoperability between different units of code.
+**Top-tip:** *Apple recommends using* `Int` *for general use, even when the instance represents a non-negative value. Their reasoning is that this improves interoperability between different units of code.*
 
 ## Converting Data Types
 
@@ -87,12 +89,12 @@ let random = arc4random_uniform(UInt32(die))
 ```
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-statically-typed/type_casting_UInt32_for_arc4random_uniform.png)
 
-You can initialize a new instance of a different data type by using the new data type's name suffixed with a parenthesis containing the value or instance to convert. This is a Swift shorthand for calling an initializer, and the data types have a series of initializers for translating themselves from other similar types, such as the `Int` and `UInt` families. The following statements are all equivalent:
+You can initialize a new instance of a different data type by using the new data type's name suffixed with a parenthesis containing the value or instance to convert to the new type. This is a Swift shorthand for calling an initializer, and the data types have a series of initializers for translating themselves from other similar types, such as the `Int` and `UInt` families. The following instance declrations are all equivalent:
 
 ```swift
-// equivalent statements
+// equivalent instance declarations
 
-let twenty = Int.init(20)    // long from initializer method call
+let twenty = Int.init(20)    // long form initializer method call
 let twenty = Int.init(20.0)  // uses initializer from Double type
 let twenty = Int(20)         // shorthand for initializer method
 let twenty = Int(UInt(20))   // uses the initializer from UInt type
