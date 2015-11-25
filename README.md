@@ -35,7 +35,6 @@ func heyListenGroup(group: String, speaker: String, minutes: Int) -> String {
     return "Heyyy, \(group)! Come listen to \(speaker) give a talk for \(minutes) minutes."
 }
 ```
-
 Further details on Type Annotations and [Type Safety](https://en.wikipedia.org/wiki/Type_safety) can be found in [The Basics chapter](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309
 ) of Apple's *The Swift Programming Language*
 
@@ -73,7 +72,7 @@ heyListenGroup("iOS", speaker: "Orta", minutes: pi) // error
 
 ## Converting Data Types
 
-One use case for specifically needing a `UInt32` type is when submitting a parameter to the `arc4random_uniform()` C function. If we attempt to submit a value of type `Int` to this function, the Swift compiler will complain about a mismatch:
+One use case for specifically needing a `UInt32` type is when submitting an argument to the `arc4random_uniform()` C function. If we attempt to submit a value of type `Int` to this function, the Swift compiler will complain about a mismatch:
 
 ```swift
 let die: Int = 20
@@ -89,7 +88,7 @@ let random = arc4random_uniform(UInt32(die))
 ```
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-statically-typed/type_casting_UInt32_for_arc4random_uniform.png)
 
-You can initialize a new instance of a different data type by using the new data type's name suffixed with a parenthesis containing the value or instance to convert to the new type. This is a Swift shorthand for calling an initializer, and the data types have a series of initializers for translating themselves from other similar types, such as the `Int` and `UInt` families. The following instance declrations are all equivalent:
+You can initialize a new instance of a different data type by using the new data type's name suffixed with a parenthesis containing the value or instance to convert to the new type. This is a Swift shorthand for calling an initializer, and the data types have a series of initializers for translating themselves from other similar types, such as the `Int` and `UInt` families. The following instance declarations are all equivalent:
 
 ```swift
 // equivalent instance declarations
