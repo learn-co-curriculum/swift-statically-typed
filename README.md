@@ -100,3 +100,4 @@ let twenty = Int(UInt(20))   // uses the initializer from UInt type
 let twenty: Int = 20         // type annotation syntax
 let twenty = 20              // inferred type syntax
 ```
+<a href='https://learn.co/lessons/swift-statically-typed' data-visibility='hidden'>View this lesson on Learn.co</a>
